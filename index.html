@@ -2,24 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Shashwat Rai | NEET Aspirant</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shashwat Rai — NEET 2027</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #0f172a;
-      --card: rgba(255, 255, 255, 0.08);
-      --text: #ffffff;
-      --accent: #00eaff;
+      --bg: #0b0d10;
+      --card: rgba(255,255,255,0.06);
+      --text: #e5e7eb;
+      --accent: #38bdf8;
+      --blur: blur(14px);
     }
 
     body.light {
-      --bg: #f4f6fb;
+      --bg: #f8fafc;
       --card: #ffffff;
-      --text: #0f172a;
+      --text: #020617;
       --accent: #2563eb;
     }
 
@@ -27,30 +27,47 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
     }
 
     body {
-      background: var(--bg);
+      background: radial-gradient(circle at top, #1e293b, transparent),
+                  var(--bg);
       color: var(--text);
-      transition: 0.3s ease;
       min-height: 100vh;
+      transition: 0.3s ease;
+      overflow-x: hidden;
+    }
+
+    /* Cursor glow */
+    .cursor {
+      position: fixed;
+      width: 140px;
+      height: 140px;
+      background: radial-gradient(circle, var(--accent), transparent 60%);
+      pointer-events: none;
+      opacity: 0.08;
+      transform: translate(-50%, -50%);
+      z-index: 0;
     }
 
     header {
-      padding: 50px 20px;
+      padding: 80px 20px 40px;
       text-align: center;
       position: relative;
+      z-index: 1;
     }
 
-    header h1 {
-      font-size: 3rem;
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
       font-weight: 700;
+      letter-spacing: -1px;
     }
 
     header p {
-      margin-top: 10px;
-      font-size: 1.2rem;
+      margin-top: 12px;
+      font-size: 1.1rem;
+      opacity: 0.9;
     }
 
     .typing {
@@ -58,82 +75,82 @@
       font-weight: 600;
     }
 
-    .toggle-btn {
+    .mode-btn {
       position: absolute;
       top: 20px;
       right: 20px;
-      padding: 8px 16px;
+      background: none;
+      border: 1px solid var(--card);
+      color: var(--text);
+      padding: 8px 14px;
       border-radius: 20px;
-      border: none;
       cursor: pointer;
-      background: var(--accent);
-      color: #000;
-      font-weight: 600;
     }
 
     section {
       max-width: 1100px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 30px 20px 80px;
+      position: relative;
+      z-index: 1;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
     }
 
     .card {
       background: var(--card);
-      border-radius: 18px;
-      padding: 25px;
-      backdrop-filter: blur(12px);
-      transition: transform 0.3s;
+      backdrop-filter: var(--blur);
+      border-radius: 20px;
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: 0.4s ease;
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    .card.show {
+      transform: translateY(0);
+      opacity: 1;
     }
 
     .card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-6px) scale(1.01);
     }
 
     h2 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
       color: var(--accent);
-      margin-bottom: 15px;
-      font-size: 1.6rem;
     }
 
     ul {
       list-style: none;
+      font-size: 0.95rem;
     }
 
     ul li {
-      margin: 8px 0;
-      padding-left: 18px;
-      position: relative;
+      margin: 6px 0;
+      opacity: 0.9;
     }
 
-    ul li::before {
-      content: "✔";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-    }
-
-    .badges span {
+    .tags span {
       display: inline-block;
-      background: var(--accent);
-      color: #000;
-      padding: 8px 14px;
-      border-radius: 20px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
       margin: 6px 6px 0 0;
-      font-size: 0.85rem;
-      font-weight: 600;
+      font-size: 0.8rem;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 15px;
-      padding: 12px 20px;
-      border-radius: 30px;
+      margin-top: 14px;
+      padding: 10px 18px;
+      border-radius: 999px;
       background: var(--accent);
       color: #000;
       font-weight: 600;
@@ -142,126 +159,130 @@
     }
 
     .btn:hover {
-      opacity: 0.85;
-      transform: scale(1.05);
+      transform: scale(1.06);
+      opacity: 0.9;
     }
 
     footer {
       text-align: center;
-      padding: 25px;
-      font-size: 0.9rem;
-      opacity: 0.7;
+      padding: 20px;
+      font-size: 0.8rem;
+      opacity: 0.6;
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <button class="toggle-btn" onclick="toggleTheme()">🌗 Mode</button>
-    <h1>Shashwat Rai</h1>
-    <p>I am a <span class="typing"></span></p>
-  </header>
+<div class="cursor"></div>
 
-  <section class="grid">
+<header>
+  <button class="mode-btn" onclick="toggleTheme()">🌗</button>
+  <h1>Shashwat Rai</h1>
+  <p><span class="typing"></span></p>
+</header>
+
+<section>
+  <div class="grid">
 
     <div class="card">
-      <h2>👤 About Me</h2>
+      <h2>About</h2>
       <p>
-        I am <b>Shashwat Rai</b>, a Class <b>11 PCB</b> student from 
-        <b>Varanasi, Uttar Pradesh</b>. I am preparing for 
-        <b>NEET 2027</b> with discipline, consistency, and smart study methods.
+        Class 11 PCB student from Varanasi, focused on NEET 2027.
+        Passionate about learning, discipline, and building smart systems.
       </p>
     </div>
 
     <div class="card">
-      <h2>🎯 Academic Status</h2>
+      <h2>Academics</h2>
       <ul>
         <li>NEET 2027 Aspirant</li>
         <li>Arjuna NEET 1.0 & 2.0</li>
-        <li>Strong focus on Biology</li>
-        <li>Physics & Chemistry daily practice</li>
+        <li>Biology • Physics • Chemistry</li>
       </ul>
     </div>
 
     <div class="card">
-      <h2>💡 Interests</h2>
-      <div class="badges">
-        <span>💻 Coding</span>
-        <span>📚 Reading</span>
-        <span>🧠 Learning</span>
-        <span>🌍 Geopolitics</span>
-        <span>🎥 Knowledge Content</span>
+      <h2>Interests</h2>
+      <div class="tags">
+        <span>Coding</span>
+        <span>Reading</span>
+        <span>Geopolitics</span>
+        <span>Learning</span>
       </div>
     </div>
 
     <div class="card">
-      <h2>📘 Syllabus Status</h2>
-      <p>
-        Track NEET syllabus completion chapter-wise with analytics and progress tracking.
-      </p>
-      <a href="#" class="btn">Open Syllabus Tracker</a>
-      <p style="margin-top:10px; font-size:0.8rem; opacity:0.7;">
-        (Will be integrated with another site)
+      <h2>Syllabus Status</h2>
+      <p>Chapter-wise NEET syllabus tracker with analytics.</p>
+      <a href="#" class="btn">Open Tracker</a>
+      <p style="font-size:0.75rem;opacity:0.6;margin-top:6px;">
+        (Integration ready)
       </p>
     </div>
 
-    <div class="card">
-      <h2>🚀 Future Goals</h2>
-      <ul>
-        <li>Crack NEET with top rank</li>
-        <li>Build discipline & consistency</li>
-        <li>Combine Medicine + Tech</li>
-        <li>Become self-reliant learner</li>
-      </ul>
-    </div>
+  </div>
+</section>
 
-  </section>
+<footer>
+  Built by Shashwat Rai • Minimal • Focused • 2025
+</footer>
 
-  <footer>
-    © 2025 | Built by Shashwat Rai • NEET 2027
-  </footer>
+<script>
+  /* Typing */
+  const roles = [
+    "NEET 2027 Aspirant",
+    "Class 11 PCB Student",
+    "Future Doctor",
+    "Tech + Medicine Enthusiast"
+  ];
+  let i = 0, j = 0;
 
-  <script>
-    /* Typing Effect */
-    const texts = [
-      "NEET 2027 Aspirant",
-      "Class 11 PCB Student",
-      "Future Doctor",
-      "Coding Enthusiast"
-    ];
-
-    let count = 0, index = 0;
-
-    function typeEffect() {
-      if (count === texts.length) count = 0;
-      let current = texts[count];
-      document.querySelector(".typing").textContent =
-        current.slice(0, ++index);
-
-      if (index === current.length) {
-        setTimeout(() => {
-          index = 0;
-          count++;
-        }, 1500);
-      }
-      setTimeout(typeEffect, 120);
+  function type() {
+    document.querySelector(".typing").textContent =
+      roles[i].slice(0, ++j);
+    if (j === roles[i].length) {
+      setTimeout(() => {
+        j = 0;
+        i = (i + 1) % roles.length;
+      }, 1400);
     }
-    typeEffect();
+    setTimeout(type, 110);
+  }
+  type();
 
-    /* Theme Toggle with LocalStorage */
-    function toggleTheme() {
-      document.body.classList.toggle("light");
-      localStorage.setItem(
-        "theme",
-        document.body.classList.contains("light") ? "light" : "dark"
-      );
-    }
+  /* Theme */
+  function toggleTheme() {
+    document.body.classList.toggle("light");
+    localStorage.setItem("theme",
+      document.body.classList.contains("light") ? "light" : "dark");
+  }
+  if (localStorage.getItem("theme") === "light") {
+    document.body.classList.add("light");
+  }
 
-    if (localStorage.getItem("theme") === "light") {
-      document.body.classList.add("light");
-    }
-  </script>
+  /* Cursor glow */
+  const cursor = document.querySelector(".cursor");
+  document.addEventListener("mousemove", e => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+  });
+
+  /* Scroll reveal */
+  const cards = document.querySelectorAll(".card");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add("show");
+    });
+  }, { threshold: 0.15 });
+  cards.forEach(c => observer.observe(c));
+
+  /* Keyboard shortcuts */
+  document.addEventListener("keydown", e => {
+    if (e.key.toLowerCase() === "d") toggleTheme();
+    if (e.key.toLowerCase() === "s") alert("Syllabus Tracker coming soon 🚀");
+  });
+</script>
 
 </body>
 </html>
