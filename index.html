@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Shashwat Rai | NEET Aspirant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: rgba(255, 255, 255, 0.08);
+      --text: #ffffff;
+      --accent: #00eaff;
+    }
+
+    body.light {
+      --bg: #f4f6fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --accent: #2563eb;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      transition: 0.3s ease;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 50px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+    }
+
+    .typing {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .toggle-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      background: var(--accent);
+      color: #000;
+      font-weight: 600;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 25px;
+      backdrop-filter: blur(12px);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    h2 {
+      color: var(--accent);
+      margin-bottom: 15px;
+      font-size: 1.6rem;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    ul li {
+      margin: 8px 0;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    ul li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .badges span {
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      padding: 8px 14px;
+      border-radius: 20px;
+      margin: 6px 6px 0 0;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 20px;
+      border-radius: 30px;
+      background: var(--accent);
+      color: #000;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      opacity: 0.85;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <button class="toggle-btn" onclick="toggleTheme()">🌗 Mode</button>
+    <h1>Shashwat Rai</h1>
+    <p>I am a <span class="typing"></span></p>
+  </header>
+
+  <section class="grid">
+
+    <div class="card">
+      <h2>👤 About Me</h2>
+      <p>
+        I am <b>Shashwat Rai</b>, a Class <b>11 PCB</b> student from 
+        <b>Varanasi, Uttar Pradesh</b>. I am preparing for 
+        <b>NEET 2027</b> with discipline, consistency, and smart study methods.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>🎯 Academic Status</h2>
+      <ul>
+        <li>NEET 2027 Aspirant</li>
+        <li>Arjuna NEET 1.0 & 2.0</li>
+        <li>Strong focus on Biology</li>
+        <li>Physics & Chemistry daily practice</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>💡 Interests</h2>
+      <div class="badges">
+        <span>💻 Coding</span>
+        <span>📚 Reading</span>
+        <span>🧠 Learning</span>
+        <span>🌍 Geopolitics</span>
+        <span>🎥 Knowledge Content</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📘 Syllabus Status</h2>
+      <p>
+        Track NEET syllabus completion chapter-wise with analytics and progress tracking.
+      </p>
+      <a href="#" class="btn">Open Syllabus Tracker</a>
+      <p style="margin-top:10px; font-size:0.8rem; opacity:0.7;">
+        (Will be integrated with another site)
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>🚀 Future Goals</h2>
+      <ul>
+        <li>Crack NEET with top rank</li>
+        <li>Build discipline & consistency</li>
+        <li>Combine Medicine + Tech</li>
+        <li>Become self-reliant learner</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <footer>
+    © 2025 | Built by Shashwat Rai • NEET 2027
+  </footer>
+
+  <script>
+    /* Typing Effect */
+    const texts = [
+      "NEET 2027 Aspirant",
+      "Class 11 PCB Student",
+      "Future Doctor",
+      "Coding Enthusiast"
+    ];
+
+    let count = 0, index = 0;
+
+    function typeEffect() {
+      if (count === texts.length) count = 0;
+      let current = texts[count];
+      document.querySelector(".typing").textContent =
+        current.slice(0, ++index);
+
+      if (index === current.length) {
+        setTimeout(() => {
+          index = 0;
+          count++;
+        }, 1500);
+      }
+      setTimeout(typeEffect, 120);
+    }
+    typeEffect();
+
+    /* Theme Toggle with LocalStorage */
+    function toggleTheme() {
+      document.body.classList.toggle("light");
+      localStorage.setItem(
+        "theme",
+        document.body.classList.contains("light") ? "light" : "dark"
+      );
+    }
+
+    if (localStorage.getItem("theme") === "light") {
+      document.body.classList.add("light");
+    }
+  </script>
+
+</body>
+</html>
